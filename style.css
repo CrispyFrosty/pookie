@@ -1,0 +1,434 @@
+/* Import Google Font - Roboto */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap");
+
+/* General Styling */
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #333;
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #000;
+  color: #ff0000;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+main h2 {
+  text-align: center;
+}
+
+header p {
+  margin: 10px 0 0;
+  font-size: 1rem;
+}
+
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #f54990;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  color: #000000;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+.menu-container {
+  @media only screen and (max-width: 430px) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .form-section > label {
+    text-align: center;
+  }
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+input,
+select,
+textarea,
+button {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:hover {
+  outline: none;
+  border-color: #f54990;
+  box-shadow: 0 0 5px rgba(245, 73, 144, 0.5);
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  --generalButtonBackround: #f047ff;
+  background-color: var(--generalButtonBackround);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff3dc5;
+}
+
+.menu-container {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-container .form-section {
+  flex: 1;
+}
+
+.ToppingsDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: auto;
+}
+
+@media only screen and (max-width: 430px) {
+  .ToppingsDiv {
+    display: grid;
+    grid: wrap;
+    grid: auto / auto auto auto auto;
+  }
+  .customCheckBox div {
+    height: auto;
+  }
+}
+
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  flex: auto;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.button-container a,
+.button-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+  color: #bb008c;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.button-container a:hover,
+.button-container button:hover {
+  transform: translateY(-3px);
+  background-color: #555;
+}
+
+/* Styling for all select dropdowns */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:focus {
+  border-color: #f54990;
+  box-shadow: 0 0 5px rgba(245, 73, 144, 0.5);
+}
+
+/* Hover effect on dropdowns */
+select:hover {
+  border-color: #f54990;
+}
+
+/* Styling the options inside the dropdown */
+select option {
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect on options */
+select option:hover {
+  background-color: #f0f0f0;
+}
+
+/* Custom dropdown style with animation */
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.custom-dropdown select {
+  display: none;
+}
+
+.custom-dropdown .selected {
+  background-color: #2a2f3b;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.custom-dropdown .options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #2a2f3b;
+  border-radius: 5px;
+  z-index: 1;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-dropdown.open .options {
+  display: block;
+  max-height: 200px;
+  opacity: 1;
+}
+
+.custom-dropdown .option {
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.custom-dropdown .option:hover {
+  background-color: #41323a;
+}
+
+footer {
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #ff47b8;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* CheckBoxes New CSS Test*/
+.customCheckBoxHolder {
+  margin: 5px;
+  display: flex;
+}
+
+.customCheckBox {
+  width: fit-content;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  padding: 2px 8px;
+  background-color: rgba(0, 0, 0, 0.16);
+  border-radius: 0px;
+  color: rgba(255, 255, 255, 0.7);
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 300ms;
+  transition-property: color, background-color, box-shadow;
+  display: flex;
+  height: 32px;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 1px 0px inset,
+    rgba(255, 255, 255, 0.17) 0px 1px 1px 0px;
+  outline: none;
+  justify-content: center;
+  min-width: 55px;
+}
+
+.customCheckBox:hover {
+  background-color: #2c2c2c;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset,
+    rgba(255, 255, 255, 0.17) 0px -1px 1px 0px,
+    rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+}
+
+.customCheckBox .inner {
+  font-size: 18px;
+  font-weight: 900;
+  pointer-events: none;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 300ms;
+  transition-property: transform;
+  transform: translateY(0px);
+}
+
+.customCheckBox:hover .inner {
+  transform: translateY(-2px);
+}
+
+/* Multiple Checkboxes can be chained together for a radio input */
+.customCheckBoxWrapper:first-of-type .customCheckBox {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-right: 0px;
+}
+
+.customCheckBoxWrapper:last-of-type .customCheckBox {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border-left: 0px;
+}
+
+.customCheckBoxInput {
+  display: none;
+}
+
+.customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox {
+  background-color: #66672d;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset,
+    rgba(255, 255, 255, 0.17) 0px -1px 1px 0px,
+    rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+}
+
+.customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox .inner {
+  transform: translateY(-2px);
+}
+
+.customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox:hover {
+  background-color: #34723f;
+  box-shadow: rgba(0, 0, 0, 0.26) 0px -4px 1px 0px inset,
+    rgba(255, 255, 255, 0.17) 0px -1px 1px 0px,
+    rgba(0, 0, 0, 0.15) 0px 3px 6px 2px;
+}
+
+.customCheckBoxWrapper .customCheckBox:hover .inner {
+  transform: translateY(-2px);
+}
+
+/*Slider CSS*/
+.slider {
+  -webkit-appearance: none;
+  width: calc(100% - 8px);
+  padding: 8px 4px;
+  height: 12px;
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #4c00ff;
+  background-image: linear-gradient(160deg, #4900f5 0%, #80d0c7 100%);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  cursor: pointer;
+}
+
+/* Placing order button*/
+button {
+  /* Variables */
+  --button_radius: 0.75em;
+  --button_outline_color: #ff6ca9;
+  --button_border_top: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--button_radius);
+  background: var(--button_outline_color);
+}
+
+.button_top {
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid var(--button_border_top);
+  border-radius: var(--button_radius);
+  padding: 0.75em 1.5em;
+  color: var(--button_outline_color);
+  transform: translateY(-0.2em);
+  transition: transform 0.1s ease;
+  background: linear-gradient(43deg, #9741d0 0%, #c850c0 46%, #ffcc70 100%);
+}
+
+button:hover .button_top {
+  /* Pull the button upwards when hovered */
+  transform: translateY(-0.33em);
+  background-color: var(--button_outline_color);
+}
+
+button:active .button_top {
+  /* Push the button downwards when pressed */
+  transform: translateY(0);
+}
