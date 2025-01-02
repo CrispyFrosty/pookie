@@ -1,4 +1,4 @@
-// FIXME : I wish to be put in a seperated files to simplify the parttern on how to add / remove toppings
+// FIXME : put in a seperated files to simplify the parttern on how to add / remove toppings
 
 const toppings = [
   { id: "cCB1", label: "Tapioca" },
@@ -44,6 +44,17 @@ function renderToppingsCheckboxes(containerId) {
 }
 // ***** end of FIXME ********
 
+// Reload the page when navigating back
+window.addEventListener("pageshow", function (event) {
+  var historyTraversal =
+    event.persisted ||
+    (typeof window.performance != "undefined" && window.performance === 2);
+  if (historyTraversal) {
+    // Handle page restore.
+    window.location.reload();
+  }
+});
+
 document.querySelectorAll(".custom-dropdown").forEach((dropdown) => {
   const selected = dropdown.querySelector(".selected");
   const options = dropdown.querySelector(".options");
@@ -74,7 +85,7 @@ slider.oninput = function () {
 renderToppingsCheckboxes("ToppingsDiv");
 
 const form = document.getElementById("orderForm");
-form.addEventListener("submit", function (e) {
+form?.addEventListener("submit", function (e) {
   e.preventDefault();
 
   // Get form data
@@ -85,12 +96,32 @@ form.addEventListener("submit", function (e) {
     toppings: formData.getAll("toppings"),
     sweetness: formData.get("sweetness"),
     ice: formData.get("ice"),
-    requests: formData.get("requests"),
+    requests: formData.get("request"),
   };
 
   // Store data in localStorage
   localStorage.setItem("orderData", JSON.stringify(orderData));
 
   // Redirect to the confirmation page
-  window.location.href = "confirmation.html";
+  window.location.href = "./response_purejs.html";
+});
+
+// JS function to GET
+const concave = document.getElementById("JSFunction");
+concave?.addEventListener("click", async (event) => {
+  event.preventDefault(); // Prevent the default form submission behavior
+  console.log("JSFunction");
+
+  try {
+    const response = await fetch("http://localhost:3000/api/orders", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    console.log(response.data);
+  } catch (error) {
+    console.error("Error submitting order:", error);
+  }
 });
